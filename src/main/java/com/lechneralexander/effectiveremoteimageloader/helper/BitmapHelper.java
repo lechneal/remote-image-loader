@@ -17,8 +17,9 @@ public class BitmapHelper {
 
     /**
      * Calculates the float factor to downsample the bitmap to cover the imageView.
-     * @param width original Bitmap width
-     * @param height original Bitmap height
+     *
+     * @param width     original Bitmap width
+     * @param height    original Bitmap height
      * @param newWidth
      * @param newHeight
      * @return float downsample scale factor
@@ -29,7 +30,7 @@ public class BitmapHelper {
         //Check if bitmap should be downscaled
         if (height > newHeight && width > newWidth) {
             // Calculate height and width ratio
-            final float heightRatio =  (float) newHeight / (float) height;
+            final float heightRatio = (float) newHeight / (float) height;
             final float widthRatio = (float) newWidth / (float) width;
 
             // Choose the smaller ratio as the downsample factor, this will guarantee the final bitmap will cover the imageView
@@ -43,8 +44,8 @@ public class BitmapHelper {
      * Scales the provided bitmap to the height and width provided (using antialiasing).
      * (Alternative method for scaling bitmaps since Bitmap.createScaledBitmap(...) produces low quality bitmaps.)
      *
-     * @param bitmap is the bitmap to scale.
-     * @param newWidth is the desired width of the scaled bitmap.
+     * @param bitmap    is the bitmap to scale.
+     * @param newWidth  is the desired width of the scaled bitmap.
      * @param newHeight is the desired height of the scaled bitmap.
      * @return the scaled bitmap.
      */
