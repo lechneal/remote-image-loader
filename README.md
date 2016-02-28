@@ -4,16 +4,21 @@ This project can be used to handle remote and asset images in Android. Images ar
 ## Usage
 
 ### Init
+Set the largeHeap flag in your AndroidManifest if you are handling large image files
+```xml
+android:largeHeap="true"
+```
 Create a new BitmapLoader
 ```java
 BitmapLoader loader = new BitmapLoader(getAssets(), cache);
 ```
-### Asset Image
+
+### Load Asset Image
 Load an asset image into an imageView (progressBar is optional and can be null)
 ```java
 loader.loadAssetBitmap("test.jpg", imageView, progressBar, true);
 ```
-### Remote Image
+### Load Remote Image
 Load a remote image into an imageView (progressBar is optional and can be null)
 ```java
 loader.loadAssetBitmap("http://mydomain.com/image.jpg", imageView, progressBar, true);
@@ -21,6 +26,16 @@ loader.loadAssetBitmap("http://mydomain.com/image.jpg", imageView, progressBar, 
 
 ## Cache
 Simply implement the given Cache interface. Use a memory and/or disk cache of your choice, for instance LruCache and DiskLruCache. 
+
+## Internal Workflow
+Loading remote image into imageView workflow:
+![Remote Image Workflow](/remoteImageWorkflow.png)
+If the bitmap is not found in memory cache, the fetching, caching, processing of the image are performed off the UI thread
+
+Asset images are handled in a similar way. The only difference is that no disk cache is used for asset images.
+
+## Developed By
+Alexander Lechner
 
 ## License 
 The MIT License (MIT)
