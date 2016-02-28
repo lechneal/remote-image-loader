@@ -1,6 +1,12 @@
 # remote-image-loader for Android
 This project can be used to handle remote and asset images in Android. Images are automatically fetched, cached and scaled down to the effective image view size, in order to minimize memory usage and optimize speed.
 
+Images are automatically scaled down in order to perfectly fit inside the given imageView. Scaled-down versions of the original image are kept in memory and in disk cache for maximal speed. 
+
+Optional features: 
+* a progressBar/spinner can be used to indicating the image is still loading
+* animate (fadeIn) the image
+
 ## Usage
 
 ### Init
