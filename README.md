@@ -30,6 +30,7 @@ Simply implement the given Cache interface. Use a memory and/or disk cache of yo
 ## Internal Workflow
 Loading remote image into imageView workflow:
 ![Remote Image Workflow](/remoteImageWorkflow.png)
+
 If the bitmap is not found in memory cache, the fetching, caching, processing of the image are performed off the UI thread
 
 Asset images are handled in a similar way. The only difference is that no disk cache is used for asset images.
