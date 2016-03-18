@@ -1,7 +1,7 @@
 # remote-image-loader for Android
 This project can be used to handle remote and asset images in Android. Images are automatically fetched, cached and scaled down to the effective image view size, in order to minimize memory usage and optimize speed.
 
-Images are automatically scaled down in order to perfectly fit inside the given imageView. Scaled-down versions of the original image are kept in memory and in disk cache for maximal speed. 
+Images are automatically scaled down in order to perfectly fit inside the given imageView. Scaled-down versions of the original image are kept in memory and in disk cache for maximum speed. 
 
 Optional features: 
 * a progressBar/spinner can be used to indicating the image is still loading
@@ -37,7 +37,9 @@ Simply implement the given Cache interface. Use a memory and/or disk cache of yo
 Loading remote image into imageView workflow:
 ![Remote Image Workflow](/remoteImageWorkflow.png)
 
-If the bitmap is not found in memory cache, the fetching, caching, processing of the image are performed off the UI thread
+In order to get the exact image view dimensions, the activity is rendered before the bitmap is loaded.
+
+If the bitmap is not found in memory cache, the fetching, caching, processing of the image are performed off the UI thread.
 
 Asset images are handled in a similar way. The only difference is that no disk cache is used for asset images.
 
